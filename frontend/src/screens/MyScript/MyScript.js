@@ -13,33 +13,30 @@ import { Chart } from "react-google-charts";
 
 
 const MyScript = ({ location, history }) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [pic, setPic] = useState();
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [picMessage, setPicMessage] = useState();
-
-  const dispatch = useDispatch();
-
-  const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;
-
-  const userUpdate = useSelector((state) => state.userUpdate);
-  const { loading, error, success } = userUpdate;
-
+  const data = [
+    ["Year", "Sales", "Expenses"],
+    ["2004", 1000, 400],
+    ["2005", 1170, 460],
+    ["2006", 660, 1120],
+    ["2007", 1030, 540]
+  ];
+  const options = {
+    title: "Company Performance",
+    curveType: "function",
+    legend: { position: "bottom" }
+  };
 
   return (
     <MainScreen title="My Script">
-      <div className={"my-pretty-chart-container"}>
+      <div className="MyApp">
         <Chart
-          chartType="ScatterChart"
-          data={[["Age", "Weight"], [4, 5.5], [8, 12]]}
+          chartType="LineChart"
           width="100%"
           height="400px"
-          legendToggle
+          data={data}
+          options={options}
         />
-      </div>
+      </div>      
     </MainScreen>
   );
 };
