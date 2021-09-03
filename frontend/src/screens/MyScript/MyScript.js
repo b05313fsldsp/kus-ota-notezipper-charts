@@ -7,6 +7,11 @@ import { updateProfile } from "../../actions/userActions";
 import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
 
+//import * as React from "react";
+import { render } from "react-dom";
+import { Chart } from "react-google-charts";
+
+
 const MyScript = ({ location, history }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -26,7 +31,14 @@ const MyScript = ({ location, history }) => {
 
   return (
     <MainScreen title="My Script">
-      <div>
+      <div className={"my-pretty-chart-container"}>
+        <Chart
+          chartType="ScatterChart"
+          data={[["Age", "Weight"], [4, 5.5], [8, 12]]}
+          width="100%"
+          height="400px"
+          legendToggle
+        />
       </div>
     </MainScreen>
   );
