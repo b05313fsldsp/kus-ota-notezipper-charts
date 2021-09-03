@@ -11,6 +11,7 @@ import CreateNote from "./screens/SingleNote/CreateNote";
 import { useState } from "react";
 import ProfileScreen from "./screens/ProfileScreen/ProfileScreen";
 import ChartsScreen from "./screens/ChartsScreen/ChartsScreen";
+import MyScript from "./screens/MyScript/MyScript";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -32,6 +33,7 @@ function App() {
         <Route path="/createnote" component={CreateNote} />;
         <Route path="/profile" component={ProfileScreen} />
         <Route path="/charts" component={ChartsScreen} />
+        <Route path="/script" component={MyScript} />
       </main>
       <Footer />
     </Router>
